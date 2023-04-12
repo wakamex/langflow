@@ -44,6 +44,7 @@ def serve(
     # get the directory of the current file
     path = Path(__file__).parent
     static_files_dir = path / "frontend"
+    static_files_dir.mkdir(parents=True, exist_ok=True)
     app.mount(
         "/",
         StaticFiles(directory=static_files_dir, html=True),
